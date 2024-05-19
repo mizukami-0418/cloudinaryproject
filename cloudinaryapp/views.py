@@ -23,7 +23,7 @@ def upload_photo(request):
             return redirect('photo_list')
     else:
         form = PhotoForm()
-    return render(request, 'upload_photo.html', {'form': form})
+    return render(request, 'cloudinaryapp/upload_photo.html', {'form': form})
 
 def photo_list(request):
     """
@@ -36,4 +36,4 @@ def photo_list(request):
     - HTTPレスポンスオブジェクト: 写真リストページのレンダリング結果を返す
     """
     photos = Photo.objects.all()
-    return render(request, 'photo_list.html', {'photos': photos})
+    return render(request, 'cloudinaryapp/photo_list.html', {'photos': photos})
