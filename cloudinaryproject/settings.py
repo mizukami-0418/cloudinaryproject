@@ -87,9 +87,9 @@ DATABASES = {
 
 # Cloudinaryのセットアップ。.envファイルから環境変数を呼び出す。
 CLOUDINARY_STORAGE = {
-    'CLOUD_NAME': os.getenv('CLOUDINARY_CLOUD_NAME'),
-    'API_KEY': os.getenv('CLOUDINARY_KEY'),
-    'API_SECRET': os.getenv('CLOUDINARY_SECRET')
+    'CLOUD_NAME': os.getenv('CLOUD_NAME'),
+    'API_KEY': os.getenv('API_KEY'),
+    'API_SECRET': os.getenv('API_SECRET')
 }
 
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
