@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload Photo</title>
+</head>
+<body>
+    <h1>Upload Photo</h1>
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        {% comment %} formの属性をpタグで表示する {% endcomment %}
+        {{ form.as_p }}
+        <button type="submit">Upload</button>
+    </form>
+    <a href="{% url 'photo_list' %}">画像一覧はこちら</a>
+</body>
+</html>

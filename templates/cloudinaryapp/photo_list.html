@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Photo List</title>
+</head>
+<body>
+    <h1>Photo List</h1>
+    <ul>
+        {% comment %} for文でphotosのデータを全て取得する {% endcomment %}
+        {% for photo in photos %}
+            <li>
+                {% comment %} 取得した画像とタイトルをリストで表示する {% endcomment %}
+                <h2>{{ photo.title }}</h2>
+                <img src="{{ photo.image.url }}" alt="{{ photo.title }}" width="300">
+            </li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'upload_photo' %}">新規画像のアップロードはこちら</a>
+</body>
+</html>
