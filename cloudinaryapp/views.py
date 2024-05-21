@@ -1,8 +1,8 @@
 # views.py
 
 from django.shortcuts import render, redirect
-from .forms import PhotoForm
-from .models import Photo
+from .forms import PhotoForm, AlbumForm
+from .models import Photo, Album
 
 def upload_photo(request):
     """
@@ -37,3 +37,17 @@ def photo_list(request):
     """
     photos = Photo.objects.all()
     return render(request, 'cloudinaryapp/photo_list.html', {'photos': photos})
+
+def create_album(request):
+    if request.method == 'POST':
+        form = AlbumForm(request.POST)
+        if form.is_valid():
+            album = form.save()
+            return redirect('album_detail', pk=album.pk)
+    else:
+        form = AlbumForm()
+    return render(request, 'create_album.html', {'form': form})
+
+def album_detail(request, pk):
+    album = Album.objects.get(pk=pk)
+    return render(request, 'album_detail.html', {'album': album})
