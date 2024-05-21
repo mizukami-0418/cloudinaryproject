@@ -23,3 +23,11 @@ class Photo(models.Model):
             str: 画像のタイトル。
         """
         return self.title
+
+# imageを複数選択しアルバムを作成するモデル
+class Album(models.Model):
+    name = models.CharField(max_length=100)
+    photos = models.ManyToManyField(Photo)
+
+    def __str__(self):
+        return self.name
