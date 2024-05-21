@@ -46,8 +46,8 @@ def create_album(request):
             return redirect('album_detail', pk=album.pk)
     else:
         form = AlbumForm()
-    return render(request, 'cloudinary/create_album.html', {'form': form})
+    return render(request, 'cloudinaryapp/create_album.html', {'form': form})
 
 def album_detail(request, pk):
     album = Album.objects.get(pk=pk)
-    return render(request, 'cloudinary/album_detail.html', {'album': album})
+    return render(request, 'cloudinaryapp/album_detail.html', {'album': album})
